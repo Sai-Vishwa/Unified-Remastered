@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naanum Coder tha...</title>
+    <link rel="stylesheet" href="LoginPageCSS.css">
+</head>
+<body>
+    <div class="main">
+    <p class="inside" id="name">Unified made easy</p>
+    <input class="inside"  id="inputrno" type="text" placeholder="Enter your college roll no">
+    <input class="inside"  id="inputdob" type="date" placeholder="Enter your date of birth">
+    <input class="inside"  id="inputbg" name="inputbg" type="text" list="bloodgroups" placeholder="Enter your blood group">
+    <datalist id="bloodgroups"> 
+        <option value="A+VE"></option>
+        <option value="B+VE"></option>
+        <option value="O+VE"></option>
+        <option value="AB+VE"></option>
+        <option value="A1B+VE"></option>
+        <option value="A-VE"></option>
+        <option value="B-VE"></option>
+        <option value="O-VE"></option>
+        <option value="AB-VE"></option>
+        <option value="A1B-VE"></option>
+    </datalist>
+    <button id="button" class="inside" type="submit" onclick="mailid()"> Submit</button>
+</div>
+<p id="Person"></p>
+<p id="Marks"></p>
+    <script src="LoginPageJS.js"></script>
+</body>
+</html>

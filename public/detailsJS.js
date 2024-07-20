@@ -5,7 +5,9 @@ let CGPADATA;
 let SemDATA = [];
 let InternDATA = [];
 Name.textContent = "Student Name  -  " + `${NAME}`;
+Name.style.textAlign = "center"
 document.body.prepend(Name);
+
 let CGPA = document.createElement("h3");
 let container = document.getElementById("tables");
 let Sem = document.createElement("table");
@@ -16,14 +18,6 @@ Intern.textContent ="";
 Sem.style.display = "none";
 Intern.style.display = "none";
 CGPA.style.display = "none";
-function fetchinternals(callback,element){
-            
-            //callback(index,element,typefind);
-}
-function fetchinternals2(index,element,typefind){
-    //console.log(InternDATA);
-            
-}
 fetcheverydetail();
 function fetcheverydetail (){
     fetch("/details.html",{method:"POST",headers: {'Content-Type':'application/json'},body: JSON.stringify({"PersonId":`${PID}`,"type":"cgpa"})})
@@ -36,30 +30,17 @@ function fetcheverydetail (){
     fetch("/details.html",{method:"POST",headers: {'Content-Type':'application/json'},body: JSON.stringify({"PersonId":`${PID}`,"type":"semres"})})
     .then(response => {return response.json();})
     .then(data => {
-        //console.log(data);
         data.forEach(element => {
-        
-            //console.log(element);
             let arr = [element["Semester"],element["SubjCode"],element["Subject"],element["Grade"]];
-            //let arr2 = [element["Semester"],element["Subject"]];
             SemDATA.push(arr);
-            
-        
     });
-    //console.log(SemDATA);
     }).catch(error => {window.alert("Some technical error.. try again")});
-
-    
-    
 
     fetch("/details.html",{method:"POST",headers: {'Content-Type':'application/json'},body: JSON.stringify({"PersonId":`${PID}`,"type":"intres"})})
     .then(response => {return response.json();})
     .then(data => {
-        //console.log(data);
         data.forEach(element => {
             let typefind = element["EventTitle"].split("/")[2];
-
-            
             if(typefind.startsWith("ASSIGNMENT")){
                 let Tot = Number(element["U1"])+Number(element["U2"])+Number(element["U3"])+Number(element["U4"])+Number(element["U5"]);
                 InternDATA.push([element["Semester"],element["SubjName"],"Assignment",Tot]);
@@ -80,30 +61,15 @@ function fetcheverydetail (){
                 let Tot = Number(element["U3"]);
                 InternDATA.push([element["Semester"],element["SubjName"],"CAT 2",Tot]);
             }
-            //console.log(InternDATA);
-            
-            
-            
-            
-
-            
     });}).catch(error => {window.alert("Some technical error.. try again itho ithu tha" + `${error}`)});
-    
-    
 }
 
 Sem.style.border = '1';
 Intern.style.border = '1';
 
-
-
 document.body.appendChild(CGPA);
 document.body.appendChild(Sem);
 document.body.appendChild(Intern);
-
-
-
-//console.log("PID from Local storage is - "+PID);
 
 function cgpafetch(){
     
@@ -182,7 +148,6 @@ Intern.textContent ="";
 
     const tbody = document.createElement('tbody');
 
-    //console.log(InternDATA);
     for(let i=0;i<InternDATA.length;i++){
         if(reqsem === InternDATA[i][0] && reqcat === InternDATA[i][2]){
             const row = document.createElement("tr");

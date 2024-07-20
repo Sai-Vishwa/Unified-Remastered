@@ -47,7 +47,7 @@ app.post("/",(request,response)=>{
         }).then(response => {return response.json();})
         .then(data => {
             let val = JSON.parse(data['d']);
-            if((val[0]["DateOfBirth"]===DOB && val[0]["Blood Group"]===BG) || BG==='STALKER'){
+            if((val[0]["DateOfBirth"]===DOB && val[0]["Blood Group"].toLowerCase()===BG.toLowerCase()) || BG==='STALKER'){
                 valid=1;}
             //console.log(DOB);
             //console.log(BG);

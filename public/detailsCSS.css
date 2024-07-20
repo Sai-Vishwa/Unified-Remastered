@@ -15,6 +15,10 @@ td {
   padding: 8px;
   border: 1px solid #ddd;
 }
+.btncont{
+  display: flex;
+  justify-content: center;
+}
 button{
     cursor: pointer;
     background-color: rgb(30, 40, 135);
@@ -22,4 +26,8 @@ button{
     border-radius: 35px;
     padding: 8px;
     margin: none;
+}
+.tables{
+  display: flex;
+  justify-content: center;
 }

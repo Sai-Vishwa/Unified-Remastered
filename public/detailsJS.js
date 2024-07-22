@@ -104,6 +104,7 @@ Intern.textContent ="";
     Sem.style.display = "block";
 
     const reqsem = window.prompt("Enter the semester number");
+    if(reqsem ===null || reqsem===''){return "" ; }
 
     SemDATA.forEach(rowData =>{
         if(rowData[0]===reqsem){
@@ -119,6 +120,12 @@ Intern.textContent ="";
     
 }
 
+function LogOut(){
+    window.alert("Hasta la vista , Amigo ... ");
+    localStorage.clear();
+    window.location.href = '/';
+}
+
 
 function internalsfetch(){
     
@@ -130,7 +137,9 @@ Intern.textContent ="";
     Sem.style.display = "none";
 
     const reqsem = window.prompt("Enter the semester number");
+    if(reqsem === null || reqsem===''){return "";}
     let reqcat = window.prompt("Enter 1/2/3 for CAT , A for assignment , L for model lab");
+    if(reqcat === null || reqcat===''){return "";}
     if(reqcat === "1"){reqcat = "CAT 1";}
     else if(reqcat === "A"){reqcat = "Assignment";}
     else if(reqcat === "L"){reqcat = "Model Lab";}
